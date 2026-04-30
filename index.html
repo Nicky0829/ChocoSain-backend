@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ChocoSain</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+    <img src="logo.jpeg" class="logo">
+    <h1>🍫 ChocoSain</h1>
+</header>
+
+<div class="menu-movil">
+    <button onclick="mostrar('catalogo')">🍫</button>
+    <button onclick="irCarrito()">🛒</button>
+    <button onclick="mostrar('inicio')">👤</button>
+</div>
+
+<section id="inicio" class="pantalla activa">
+    <h2>Bienvenido 💜</h2>
+    <input id="usuario" placeholder="Usuario">
+    <input id="clave" type="password" placeholder="Contraseña">
+    <button onclick="registrar()">Registrarse</button>
+    <button onclick="login()">Ingresar</button>
+    <p id="mensaje"></p>
+</section>
+
+<section id="catalogo" class="pantalla">
+    <h2>🍫 Catálogo</h2>
+
+    <div class="productos">
+
+        <div class="producto">
+            <img src="Destello Brillosito.jpg">
+            <h3>Destello Brillosito</h3>
+            <p class="desc">Una explosión cítrica y vibrante. Chocolate amargo premium que resguarda un corazón fluido de maracuyá, diseñado para iluminar tu paladar ✨</p>
+            <p>$8000</p>
+
+            <input type="number" min="1" value="1" class="cantidad">
+
+            <button onclick="agregarCarrito(this)">
+    Agregar
+</button>
+        </div>
+
+        <div class="producto">
+            <img src="Cupido.jpg">
+            <h3>Cupido</h3>
+            <p class="desc">El romance hecho chocolate. La intensidad del cacao se funde con un dulce y apasionado relleno de fresa natural. Imposible no enamorarse ✨</p>
+            <p>$9000</p>
+
+            <input type="number" min="1" value="1" class="cantidad">
+
+            <button onclick="agregarCarrito(this)">
+    Agregar
+</button>
+        </div>
+
+        <div class="producto">
+            <img src="Love.jpg">
+            <h3>Love</h3>
+            <p class="desc">Elegancia en cada bocado. Una combinación sofisticada de chocolate oscuro con un centro aterciopelado de cereza que evoca pura dulzura ✨</p>
+            <p>$10000</p>
+
+            <input type="number" min="1" value="1" class="cantidad">
+
+            <button onclick="agregarCarrito(this)">
+    Agregar
+</button>
+        </div>
+
+        <div class="producto">
+            <img src="Wonka.jpg">
+            <h3>Wonka</h3>
+            <p class="desc">Una aventura de sabor mágica. Descubre un misterioso y salvaje mix de frutos del bosque envuelto en nuestra capa de chocolate más crujiente ✨</p>
+            <p>$8500</p>
+
+            <input type="number" min="1" value="1" class="cantidad">
+
+            <button onclick="agregarCarrito(this)">
+    Agregar
+</button>
+        </div>
+
+        <div class="producto">
+            <img src="Corazoncito.jpg">
+            <h3>Corazoncito</h3>
+            <p class="desc">Ternura para compartir. Pequeñas dosis de felicidad con un delicado relleno de frambuesa que equilibra perfectamente la acidez y el dulzor ✨</p>
+            <p>$10000</p>
+
+            <input type="number" min="1" value="1" class="cantidad">
+
+            <button onclick="agregarCarrito(this)">
+    Agregar
+</button>
+        </div>
+
+        <div class="producto">
+            <img src="Mini Love.jpg">
+            <h3>Mini Love</h3>
+            <p class="desc">El snack perfecto. Divertidos bocaditos en forma de corazón rellenos de arándano, ideales para disfrutar de un momento dulce en cualquier lugar ✨</p>
+            <p>$7500</p>
+
+            <input type="number" min="1" value="1" class="cantidad">
+
+            <button onclick="agregarCarrito(this)">
+    Agregar
+</button>
+        </div>
+
+        <div class="producto">
+            <img src="Extra Love.jpg">
+            <h3>Extra Love</h3>
+            <p class="desc">Para los amantes de la intensidad. Una experiencia superior con doble contenido de fruta de la pasión y un chocolate amargo de origen selecto ✨</p>
+            <p>$12000</p>
+
+            <input type="number" min="1" value="1" class="cantidad">
+
+            <button onclick="agregarCarrito(this)">
+    Agregar
+</button>
+        </div>
+
+        <div class="producto">
+            <img src="Gloria.jpg">
+            <h3>Gloria</h3>
+            <p class="desc">Un bocado celestial. La suavidad del melocotón maduro se combina con nuestro chocolate para crear una sensación de paz y placer absoluto ✨</p>
+            <p>$10500</p>
+
+            <input type="number" min="1" value="1" class="cantidad">
+
+            <button onclick="agregarCarrito(this)">
+    Agregar
+</button>
+        </div>
+
+    </div>
+
+    <button onclick="irCarrito()">🛒 Ver carrito</button>
+</section>
+
+<section id="carritoSec" class="pantalla">
+    <h2>🛒 Carrito</h2>
+
+    <ul id="lista-carrito"></ul>
+<span id="total">0</span>
+
+    <button onclick="irFactura()">🧾 Generar factura</button>
+</section>
+
+<section id="facturaSec" class="pantalla">
+    <h2>🧾 Factura</h2>
+
+    <div id="factura"></div> <!-- 👈 ESTE ES EL CONTENEDOR -->
+
+    <button onclick="descargarPDF()">📄 Descargar PDF</button>
+    <button onclick="irPago()">💳 Ir a pagar</button>
+</section>
+
+<section id="pagoSec" class="pantalla">
+    <h2>💳 Pago</h2>
+
+    <p>Total: $<span id="totalPago"></span></p>
+
+    <select id="metodoPago">
+        <option>Tarjeta 💳</option>
+        <option>Nequi 📱</option>
+        <option>Efectivo 💵</option>
+    </select>
+
+    <button onclick="pagar()">Pagar ahora</button>
+
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

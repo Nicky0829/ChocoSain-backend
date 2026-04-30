@@ -1,0 +1,307 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+    background-size: 400% 400%;
+    animation: fondoAnimado 10s ease infinite;
+}
+
+header {
+    text-align: center;
+    background: linear-gradient(90deg,#3e2723,#4a148c);
+    color: white;
+    padding: 10px;
+}
+
+.logo {
+    width: 250px;
+}
+
+.pantalla {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.activa {
+    display: block;
+    animation: fadeIn 0.6s ease;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: linear-gradient(90deg,#4a148c,#7e57c2);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+}
+
+button:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+#mensaje {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#mensaje {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.producto {
+    background: white;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    width: 200px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.desc {
+    font-size: 13px;
+    color: #555;
+}
+
+#lista-carrito {
+    padding: 0;
+}
+
+#lista-carrito li {
+    list-style: none;
+    margin: 10px auto;
+    max-width: 500px;
+}
+
+.card-carrito {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-carrito img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card-carrito .info {
+    flex: 1;
+}
+
+.card-carrito h4 {
+    margin: 0;
+    color: #4a148c;
+}
+
+.card-carrito span {
+    font-weight: bold;
+    color: #7e57c2;
+}
+
+#total {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg,#4a148c,#7e57c2);
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.factura-box {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+    text-align: left;
+}
+
+.factura-box h2 {
+    text-align: center;
+    color: #4a148c;
+}
+
+.factura-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.factura-box th {
+    background: #4a148c;
+    color: white;
+    padding: 8px;
+}
+
+.factura-box td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.factura-box h3 {
+    text-align: right;
+}
+
+#pdf {
+    display: block !important;
+    background: white !important;
+    color: black !important;
+    min-height: 300px;
+}
+
+.pago-box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+    animation: zoomIn 0.5s ease;
+}
+
+.pago-box.exito {
+    border: 3px solid #7e57c2;
+}
+
+.loader {
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+    border: 5px solid #ccc;
+    border-top: 5px solid #7e57c2;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+}
+
+.menu-movil {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4a148c;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-movil button {
+    background: none;
+    color: white;
+    font-size: 20px;
+}
+
+.animacion {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: rgb(125, 26, 99);
+    transform: rotate(45deg);
+    pointer-events: none;
+    animation: corazon 0.5s ease-out forwards;
+}
+
+.animacion::before,
+.animacion::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: rgb(123, 18, 123);
+    border-radius: 50%;
+}
+
+.animacion::before {
+    top: -7px;
+}
+
+.animacion::after {
+    left: -7px;
+}
+
+@keyframes corazon {
+    to {
+        transform: translateY(-60px) scale(2) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: scale(0.95);}
+    to {opacity:1; transform: scale(1);}
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.8); opacity:0;}
+    to {transform: scale(1); opacity:1;}
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fondoAnimado {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+@media (max-width: 768px) {
+
+    .logo { width: 90px; }
+
+    input, button {
+        width: 90%;
+    }
+
+    .producto {
+        width: 90%;
+    }
+
+    .card-carrito {
+        flex-direction: column;
+        text-align: center;
+    }
+}
